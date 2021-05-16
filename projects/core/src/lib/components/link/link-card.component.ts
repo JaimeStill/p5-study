@@ -11,5 +11,5 @@ import { Link } from '../../models';
 })
 export class LinkCardComponent {
   @Input() link: Link = { } as Link;
-  @Input() size = 360;
+  @Input() size = 280;
 }

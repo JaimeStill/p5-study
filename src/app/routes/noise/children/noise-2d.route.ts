@@ -3,16 +3,16 @@ import { Attribution } from 'core';
 import { NoiseService } from '../../../services';
 
 @Component({
-  selector: 'noise-vs-random-route',
-  templateUrl: 'noise-vs-random.route.html',
+  selector: 'noise-2d-route',
+  templateUrl: 'noise-2d.route.html',
   providers: [ NoiseService ]
 })
-export class NoiseVsRandomRoute {
+export class Noise2dRoute {
   attribution: Attribution = {
-    title: 'noise() vs. random()',
+    title: '2D Noise',
     link: {
-      url: 'https://thecodingtrain.com/learning/noise/0.3-noise-vs-random.html',
-      label: 'The Coding Train - Perlin Noise Lesson #0.3'
+      url: 'https://thecodingtrain.com/learning/noise/0.5-2d-noise.html',
+      label: 'The Coding Train - Perlin Noise Lesson #0.5'
     }
   } as Attribution;
 

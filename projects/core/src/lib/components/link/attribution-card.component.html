@@ -1,0 +1,8 @@
+<section fxLayout="column"
+         fxLayoutAlign="start stretch"
+         class="p8 m4 rounded elevated card-outline-accent"
+         [style.width.px]="size">
+  <p class="mat-title m4">{{attribution?.title}}</p>
+  <a target="_blank"
+     [href]="attribution?.link?.url">{{attribution?.link?.label}}</a>
+</section>

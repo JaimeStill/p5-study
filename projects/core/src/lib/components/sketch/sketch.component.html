@@ -1,0 +1,14 @@
+<section fxLayout="column"
+         [ngClass]="sketchStyle">
+  <section fxLayout="row"
+           fxLayoutAlign="space-between center">
+    <p class="mat-title m8">{{title}}</p>
+    <button mat-icon-button class="m8" (click)="refresh()">
+      <mat-icon>replay</mat-icon>
+    </button>
+  </section>
+  <section class="m8 elevated rounded"
+           [style.width.px]="width"
+           [style.height.px]="height"
+           #canvas></section>
+</section>
