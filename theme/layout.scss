@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.app-frame {
+  height: 100%;
+}
+
+.app-container {
+  height: calc(100% - 64px);
+  overflow: auto;
+}
+
+mat-toolbar.mat-toolbar mat-form-field.mat-form-field {
+  font-size: 12px;
+
+  label.mat-form-field-label {
+      font-weight: bold;
+  }
+}
+
+nav.mat-tab-nav-bar.wrapped div.mat-tab-links {
+  flex-wrap: wrap;
+}
+
+nav.mat-tab-nav-bar.scrolled {
+  white-space: nowrap;
+  overflow: auto;
+
+  div.mat-tab-links {
+    display: block;
+  }
+}
+
+a.mat-tab-link,
+mat-tab.mat-tab {
+  min-width: 80px;
+}
+
+mat-tab-group.mat-tab-group.flexible div.mat-tab-labels {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-items: space-evenly;
+
+  div.mat-tab-label {
+    flex-grow: 1;
+    flex-basis: auto;
+    min-width: 0;
+  }
+}
+
+nav.mat-tab-nav-bar.flexible div.mat-tab-links {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-items: space-evenly;
+
+  a.mat-tab-link {
+    flex-grow: 1;
+    flex-basis: auto;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 0) and (max-width: 599px) {
+  .app-container {
+    height: calc(100% - 56px);
+  }
+}

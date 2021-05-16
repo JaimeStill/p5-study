@@ -1,0 +1,633 @@
+@use '~@angular/material' as mat;
+
+@mixin style-glow($primary, $accent, $warn, $success, $info, $warning) {
+  .glow-1-primary {
+    @include mat.elevation(1, $primary);
+  }
+
+  .glow-2-primary {
+    @include mat.elevation(2, $primary);
+  }
+
+  .glow-3-primary {
+    @include mat.elevation(3, $primary);
+  }
+
+  .glow-4-primary {
+    @include mat.elevation(4, $primary);
+  }
+
+  .glow-5-primary {
+    @include mat.elevation(5, $primary);
+  }
+
+  .glow-6-primary {
+    @include mat.elevation(6, $primary);
+  }
+
+  .glow-7-primary {
+    @include mat.elevation(7, $primary);
+  }
+
+  .glow-8-primary {
+    @include mat.elevation(8, $primary);
+  }
+
+  .glow-9-primary {
+    @include mat.elevation(9, $primary);
+  }
+
+  .glow-10-primary {
+    @include mat.elevation(10, $primary);
+  }
+
+  .glow-11-primary {
+    @include mat.elevation(11, $primary);
+  }
+
+  .glow-12-primary {
+    @include mat.elevation(12, $primary);
+  }
+
+  .glow-13-primary {
+    @include mat.elevation(13, $primary);
+  }
+
+  .glow-14-primary {
+    @include mat.elevation(14, $primary);
+  }
+
+  .glow-15-primary {
+    @include mat.elevation(15, $primary);
+  }
+
+  .glow-16-primary {
+    @include mat.elevation(16, $primary);
+  }
+
+  .glow-17-primary {
+    @include mat.elevation(17, $primary);
+  }
+
+  .glow-18-primary {
+    @include mat.elevation(18, $primary);
+  }
+
+  .glow-19-primary {
+    @include mat.elevation(19, $primary);
+  }
+
+  .glow-20-primary {
+    @include mat.elevation(20, $primary);
+  }
+
+  .glow-21-primary {
+    @include mat.elevation(21, $primary);
+  }
+
+  .glow-22-primary {
+    @include mat.elevation(22, $primary);
+  }
+
+  .glow-23-primary {
+    @include mat.elevation(23, $primary);
+  }
+
+  .glow-24-primary {
+    @include mat.elevation(24, $primary);
+  }
+
+  .glow-primary {
+    @include mat.elevation-transition;
+    @include mat.elevation(4, $primary);
+
+    &:hover {
+      @include mat.elevation(8, $primary);
+    }
+  }
+
+  .glow-1-accent {
+    @include mat.elevation(1, $accent);
+  }
+
+  .glow-2-accent {
+    @include mat.elevation(2, $accent);
+  }
+
+  .glow-3-accent {
+    @include mat.elevation(3, $accent);
+  }
+
+  .glow-4-accent {
+    @include mat.elevation(4, $accent);
+  }
+
+  .glow-5-accent {
+    @include mat.elevation(5, $accent);
+  }
+
+  .glow-6-accent {
+    @include mat.elevation(6, $accent);
+  }
+
+  .glow-7-accent {
+    @include mat.elevation(7, $accent);
+  }
+
+  .glow-8-accent {
+    @include mat.elevation(8, $accent);
+  }
+
+  .glow-9-accent {
+    @include mat.elevation(9, $accent);
+  }
+
+  .glow-10-accent {
+    @include mat.elevation(10, $accent);
+  }
+
+  .glow-11-accent {
+    @include mat.elevation(11, $accent);
+  }
+
+  .glow-12-accent {
+    @include mat.elevation(12, $accent);
+  }
+
+  .glow-13-accent {
+    @include mat.elevation(13, $accent);
+  }
+
+  .glow-14-accent {
+    @include mat.elevation(14, $accent);
+  }
+
+  .glow-15-accent {
+    @include mat.elevation(15, $accent);
+  }
+
+  .glow-16-accent {
+    @include mat.elevation(16, $accent);
+  }
+
+  .glow-17-accent {
+    @include mat.elevation(17, $accent);
+  }
+
+  .glow-18-accent {
+    @include mat.elevation(18, $accent);
+  }
+
+  .glow-19-accent {
+    @include mat.elevation(19, $accent);
+  }
+
+  .glow-20-accent {
+    @include mat.elevation(20, $accent);
+  }
+
+  .glow-21-accent {
+    @include mat.elevation(21, $accent);
+  }
+
+  .glow-22-accent {
+    @include mat.elevation(22, $accent);
+  }
+
+  .glow-23-accent {
+    @include mat.elevation(23, $accent);
+  }
+
+  .glow-24-accent {
+    @include mat.elevation(24, $accent);
+  }
+
+  .glow-accent {
+    @include mat.elevation-transition;
+    @include mat.elevation(4, $accent);
+
+    &:hover {
+      @include mat.elevation(8, $accent);
+    }
+  }
+
+  .glow-1-warn {
+    @include mat.elevation(1, $warn);
+  }
+
+  .glow-2-warn {
+    @include mat.elevation(2, $warn);
+  }
+
+  .glow-3-warn {
+    @include mat.elevation(3, $warn);
+  }
+
+  .glow-4-warn {
+    @include mat.elevation(4, $warn);
+  }
+
+  .glow-5-warn {
+    @include mat.elevation(5, $warn);
+  }
+
+  .glow-6-warn {
+    @include mat.elevation(6, $warn);
+  }
+
+  .glow-7-warn {
+    @include mat.elevation(7, $warn);
+  }
+
+  .glow-8-warn {
+    @include mat.elevation(8, $warn);
+  }
+
+  .glow-9-warn {
+    @include mat.elevation(9, $warn);
+  }
+
+  .glow-10-warn {
+    @include mat.elevation(10, $warn);
+  }
+
+  .glow-11-warn {
+    @include mat.elevation(11, $warn);
+  }
+
+  .glow-12-warn {
+    @include mat.elevation(12, $warn);
+  }
+
+  .glow-13-warn {
+    @include mat.elevation(13, $warn);
+  }
+
+  .glow-14-warn {
+    @include mat.elevation(14, $warn);
+  }
+
+  .glow-15-warn {
+    @include mat.elevation(15, $warn);
+  }
+
+  .glow-16-warn {
+    @include mat.elevation(16, $warn);
+  }
+
+  .glow-17-warn {
+    @include mat.elevation(17, $warn);
+  }
+
+  .glow-18-warn {
+    @include mat.elevation(18, $warn);
+  }
+
+  .glow-19-warn {
+    @include mat.elevation(19, $warn);
+  }
+
+  .glow-20-warn {
+    @include mat.elevation(20, $warn);
+  }
+
+  .glow-21-warn {
+    @include mat.elevation(21, $warn);
+  }
+
+  .glow-22-warn {
+    @include mat.elevation(22, $warn);
+  }
+
+  .glow-23-warn {
+    @include mat.elevation(23, $warn);
+  }
+
+  .glow-24-warn {
+    @include mat.elevation(24, $warn);
+  }
+
+  .glow-warn {
+    @include mat.elevation-transition;
+    @include mat.elevation(4, $warn);
+
+    &:hover {
+      @include mat.elevation(8, $warn);
+    }
+  }
+
+  .glow-1-success {
+    @include mat.elevation(1, $success);
+  }
+
+  .glow-2-success {
+    @include mat.elevation(2, $success);
+  }
+
+  .glow-3-success {
+    @include mat.elevation(3, $success);
+  }
+
+  .glow-4-success {
+    @include mat.elevation(4, $success);
+  }
+
+  .glow-5-success {
+    @include mat.elevation(5, $success);
+  }
+
+  .glow-6-success {
+    @include mat.elevation(6, $success);
+  }
+
+  .glow-7-success {
+    @include mat.elevation(7, $success);
+  }
+
+  .glow-8-success {
+    @include mat.elevation(8, $success);
+  }
+
+  .glow-9-success {
+    @include mat.elevation(9, $success);
+  }
+
+  .glow-10-success {
+    @include mat.elevation(10, $success);
+  }
+
+  .glow-11-success {
+    @include mat.elevation(11, $success);
+  }
+
+  .glow-12-success {
+    @include mat.elevation(12, $success);
+  }
+
+  .glow-13-success {
+    @include mat.elevation(13, $success);
+  }
+
+  .glow-14-success {
+    @include mat.elevation(14, $success);
+  }
+
+  .glow-15-success {
+    @include mat.elevation(15, $success);
+  }
+
+  .glow-16-success {
+    @include mat.elevation(16, $success);
+  }
+
+  .glow-17-success {
+    @include mat.elevation(17, $success);
+  }
+
+  .glow-18-success {
+    @include mat.elevation(18, $success);
+  }
+
+  .glow-19-success {
+    @include mat.elevation(19, $success);
+  }
+
+  .glow-20-success {
+    @include mat.elevation(20, $success);
+  }
+
+  .glow-21-success {
+    @include mat.elevation(21, $success);
+  }
+
+  .glow-22-success {
+    @include mat.elevation(22, $success);
+  }
+
+  .glow-23-success {
+    @include mat.elevation(23, $success);
+  }
+
+  .glow-24-success {
+    @include mat.elevation(24, $success);
+  }
+
+  .glow-success {
+    @include mat.elevation-transition;
+    @include mat.elevation(4, $success);
+
+    &:hover {
+      @include mat.elevation(8, $success);
+    }
+  }
+
+  .glow-1-info {
+    @include mat.elevation(1, $info);
+  }
+
+  .glow-2-info {
+    @include mat.elevation(2, $info);
+  }
+
+  .glow-3-info {
+    @include mat.elevation(3, $info);
+  }
+
+  .glow-4-info {
+    @include mat.elevation(4, $info);
+  }
+
+  .glow-5-info {
+    @include mat.elevation(5, $info);
+  }
+
+  .glow-6-info {
+    @include mat.elevation(6, $info);
+  }
+
+  .glow-7-info {
+    @include mat.elevation(7, $info);
+  }
+
+  .glow-8-info {
+    @include mat.elevation(8, $info);
+  }
+
+  .glow-9-info {
+    @include mat.elevation(9, $info);
+  }
+
+  .glow-10-info {
+    @include mat.elevation(10, $info);
+  }
+
+  .glow-11-info {
+    @include mat.elevation(11, $info);
+  }
+
+  .glow-12-info {
+    @include mat.elevation(12, $info);
+  }
+
+  .glow-13-info {
+    @include mat.elevation(13, $info);
+  }
+
+  .glow-14-info {
+    @include mat.elevation(14, $info);
+  }
+
+  .glow-15-info {
+    @include mat.elevation(15, $info);
+  }
+
+  .glow-16-info {
+    @include mat.elevation(16, $info);
+  }
+
+  .glow-17-info {
+    @include mat.elevation(17, $info);
+  }
+
+  .glow-18-info {
+    @include mat.elevation(18, $info);
+  }
+
+  .glow-19-info {
+    @include mat.elevation(19, $info);
+  }
+
+  .glow-20-info {
+    @include mat.elevation(20, $info);
+  }
+
+  .glow-21-info {
+    @include mat.elevation(21, $info);
+  }
+
+  .glow-22-info {
+    @include mat.elevation(22, $info);
+  }
+
+  .glow-23-info {
+    @include mat.elevation(23, $info);
+  }
+
+  .glow-24-info {
+    @include mat.elevation(24, $info);
+  }
+
+  .glow-info {
+    @include mat.elevation-transition;
+    @include mat.elevation(4, $info);
+
+    &:hover {
+      @include mat.elevation(8, $info);
+    }
+  }
+
+  .glow-1-warning {
+    @include mat.elevation(1, $warning);
+  }
+
+  .glow-2-warning {
+    @include mat.elevation(2, $warning);
+  }
+
+  .glow-3-warning {
+    @include mat.elevation(3, $warning);
+  }
+
+  .glow-4-warning {
+    @include mat.elevation(4, $warning);
+  }
+
+  .glow-5-warning {
+    @include mat.elevation(5, $warning);
+  }
+
+  .glow-6-warning {
+    @include mat.elevation(6, $warning);
+  }
+
+  .glow-7-warning {
+    @include mat.elevation(7, $warning);
+  }
+
+  .glow-8-warning {
+    @include mat.elevation(8, $warning);
+  }
+
+  .glow-9-warning {
+    @include mat.elevation(9, $warning);
+  }
+
+  .glow-10-warning {
+    @include mat.elevation(10, $warning);
+  }
+
+  .glow-11-warning {
+    @include mat.elevation(11, $warning);
+  }
+
+  .glow-12-warning {
+    @include mat.elevation(12, $warning);
+  }
+
+  .glow-13-warning {
+    @include mat.elevation(13, $warning);
+  }
+
+  .glow-14-warning {
+    @include mat.elevation(14, $warning);
+  }
+
+  .glow-15-warning {
+    @include mat.elevation(15, $warning);
+  }
+
+  .glow-16-warning {
+    @include mat.elevation(16, $warning);
+  }
+
+  .glow-17-warning {
+    @include mat.elevation(17, $warning);
+  }
+
+  .glow-18-warning {
+    @include mat.elevation(18, $warning);
+  }
+
+  .glow-19-warning {
+    @include mat.elevation(19, $warning);
+  }
+
+  .glow-20-warning {
+    @include mat.elevation(20, $warning);
+  }
+
+  .glow-21-warning {
+    @include mat.elevation(21, $warning);
+  }
+
+  .glow-22-warning {
+    @include mat.elevation(22, $warning);
+  }
+
+  .glow-23-warning {
+    @include mat.elevation(23, $warning);
+  }
+
+  .glow-24-warning {
+    @include mat.elevation(24, $warning);
+  }
+
+  .glow-warning {
+    @include mat.elevation-transition;
+    @include mat.elevation(4, $warning);
+
+    &:hover {
+      @include mat.elevation(8, $warning);
+    }
+  }
+}

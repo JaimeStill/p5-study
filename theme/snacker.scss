@@ -1,0 +1,171 @@
+@use '~@angular/material' as mat;
+
+div[class*="app-dark"] snack-bar-container.mat-snack-bar-container.snacker {
+  background-color: #3e3e3e!important;
+}
+
+div[class*="app-dark"] simple-snack-bar.mat-simple-snackbar,
+div[class*="app-dark"] .snacker div.mat-simple-snackbar-action {
+    color: #e1e1e1;
+}
+
+div[class*="app-dark"] .snacker-red simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$red-palette, 500));
+}
+
+div[class*="app-dark"] .snacker-pink simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$pink-palette, 200));
+}
+
+div[class*="app-dark"] .snacker-purple simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$purple-palette, A100));
+}
+
+div[class*="app-dark"] .snacker-deep-purple simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$deep-purple-palette, A100));
+}
+
+div[class*="app-dark"] .snacker-indigo simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$indigo-palette, A100));
+}
+
+div[class*="app-dark"] .snacker-blue simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$blue-palette, 500));
+}
+
+div[class*="app-dark"] .snacker-light-blue simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$light-blue-palette, A100));
+}
+
+div[class*="app-dark"] .snacker-cyan simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$cyan-palette, A200));
+}
+
+div[class*="app-dark"] .snacker-teal simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$teal-palette, A200));
+}
+
+div[class*="app-dark"] .snacker-green simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$green-palette, A400));
+}
+
+div[class*="app-dark"] .snacker-light-green simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$light-green-palette, A400));
+}
+
+div[class*="app-dark"] .snacker-lime simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$lime-palette, A400));
+}
+
+div[class*="app-dark"] .snacker-yellow simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$yellow-palette, A200));
+}
+
+div[class*="app-dark"] .snacker-amber simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$amber-palette, A200));
+}
+
+div[class*="app-dark"] .snacker-orange simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$orange-palette, A200));
+}
+
+div[class*="app-dark"] .snacker-deep-orange simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$deep-orange-palette, A200));
+}
+
+div[class*="app-dark"] .snacker-brown simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$brown-palette, 300));
+}
+
+div[class*="app-dark"] .snacker-grey simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$grey-palette, 300));
+}
+
+div[class*="app-dark"] .snacker-blue-grey simple-snack-bar.mat-simple-snackbar {
+    color: mat.get-color-from-palette(mat.define-palette(mat.$blue-grey-palette, 200));
+}
+
+div[class*="app-light"] snack-bar-container.mat-snack-bar-container.snacker {
+  background-color: #ffffff!important;
+}
+
+div[class*="app-light"] simple-snack-bar.mat-simple-snackbar,
+div[class*="app-light"] .snacker div.mat-simple-snackbar-action {
+    color: #3e3e3e;
+}
+
+div[class*="app-light"] .snacker-red simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$red-palette, 500));
+}
+
+div[class*="app-light"] .snacker-pink simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$pink-palette, A200));
+}
+
+div[class*="app-light"] .snacker-purple simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$purple-palette, A400));
+}
+
+div[class*="app-light"] .snacker-deep-purple simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$deep-purple-palette, A200));
+}
+
+div[class*="app-light"] .snacker-indigo simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$indigo-palette, A200));
+}
+
+div[class*="app-light"] .snacker-blue simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$blue-palette, 500));
+}
+
+div[class*="app-light"] .snacker-light-blue simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$light-blue-palette, A400));
+}
+
+div[class*="app-light"] .snacker-cyan simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$cyan-palette, A700));
+}
+
+div[class*="app-light"] .snacker-teal simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$teal-palette, A700));
+}
+
+div[class*="app-light"] .snacker-green simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$green-palette, A700));
+}
+
+div[class*="app-light"] .snacker-light-green simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$light-green-palette, A700));
+}
+
+div[class*="app-light"] .snacker-lime simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$lime-palette, A700));
+}
+
+div[class*="app-light"] .snacker-yellow simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$yellow-palette, A700));
+}
+
+div[class*="app-light"] .snacker-amber simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$amber-palette, A700));
+}
+
+div[class*="app-light"] .snacker-orange simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$orange-palette, A400));
+}
+
+div[class*="app-light"] .snacker-deep-orange simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$deep-orange-palette, A400));
+}
+
+div[class*="app-light"] .snacker-brown simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$brown-palette, 400));
+}
+
+div[class*="app-light"] .snacker-grey simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$grey-palette, 500));
+}
+
+div[class*="app-light"] .snacker-blue-grey simple-snack-bar.mat-simple-snackbar {
+  color: mat.get-color-from-palette(mat.define-palette(mat.$blue-grey-palette, 500));
+}

@@ -1,0 +1,52 @@
+@use '~@angular/material' as mat;
+@include mat.core();
+
+@import "./elevation.scss";
+@import "./icons.scss";
+@import "./layout.scss";
+@import "./snacker.scss";
+@import "./styles.scss";
+@import "./utility.scss";
+
+$light-primary: mat.define-palette(mat.$light-blue-palette, 700);
+$light-accent: mat.define-palette(mat.$blue-gray-palette, 700);
+$light-warn: mat.define-palette(mat.$red-palette, 500);
+$light-success: mat.get-color-from-palette(mat.define-palette(mat.$green-palette, A700));
+$light-info: mat.get-color-from-palette(mat.define-palette(mat.$light-blue-palette, A700));
+$light-warning: mat.get-color-from-palette(mat.define-palette(mat.$amber-palette, A400));
+
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $light-primary,
+      accent: $light-accent,
+      warn: $light-warn,
+    ),
+  )
+);
+
+@include style-theme($light-theme, $light-success, $light-info, $light-warning);
+@include mat.all-component-themes($light-theme);
+
+.app-dark {
+  $dark-primary: mat.define-palette(mat.$light-blue-palette, A400);
+  $dark-accent: mat.define-palette(mat.$blue-gray-palette, 200);
+  $dark-warn: mat.define-palette(mat.$red-palette, A200);
+  $dark-success: mat.get-color-from-palette(mat.define-palette(mat.$green-palette, A200));
+  $dark-info: mat.get-color-from-palette(mat.define-palette(mat.$light-blue-palette, A200));
+  $dark-warning: mat.get-color-from-palette(mat.define-palette(mat.$amber-palette, A200));
+
+  $dark-theme: mat.define-dark-theme(
+    (
+      color: (
+        primary: $dark-primary,
+        accent: $dark-accent,
+        warn: $dark-warn,
+      ),
+    )
+  );
+
+  @include style-theme($dark-theme, $dark-success, $dark-info, $dark-warning);
+  @include mat.all-component-colors($dark-theme);
+}

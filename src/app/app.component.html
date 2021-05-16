@@ -1,0 +1,26 @@
+<section class="mat-typography mat-app-background app-frame"
+         [ngClass]="themer.isDark ? 'app-dark' : 'app-light'">
+  <mat-toolbar color="primary"
+               class="app-toolbar sticky-top">
+    <button mat-icon-button
+            class="pr8"
+            [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item
+              routerLink="noise">Perlin Noise</button>
+    </mat-menu>
+    <span fxFlex>Sketch</span>
+    <button mat-icon-button
+            class="color"
+            [ngClass]="themer.isDark ? 'text' : 'warning'"
+            (click)="themer.toggleTheme()">
+      <mat-icon *ngIf="!(themer.isDark)">brightness_5</mat-icon>
+      <mat-icon *ngIf="themer.isDark">brightness_3</mat-icon>
+    </button>
+  </mat-toolbar>
+  <section class="app-container">
+    <router-outlet></router-outlet>
+  </section>
+</section>
