@@ -139,6 +139,35 @@ export class NoiseService {
     }, element.nativeElement);
   }
 
+  tvStatic = (element: ElementRef): p5 => {
+    let inc = 0.01;
+
+    return new p5((s: p5) => {
+      s.setup = () => {
+        s.createCanvas(400, 400);
+        s.pixelDensity(1);
+      }
+
+      s.draw = () => {
+        s.loadPixels();
+
+        for (let x = 0; x < s.width; x++) {
+          for (let y = 0; y < s.height; y++) {
+            let index = (x + y * s.width) * 4;
+            let r = s.random(255);
+
+            s.pixels[index + 0] = r;
+            s.pixels[index + 1] = r;
+            s.pixels[index + 2] = r;
+            s.pixels[index + 3] = 255;
+          }
+        }
+
+        s.updatePixels();
+      }
+    }, element.nativeElement);
+  }
+
   noise2d = (element: ElementRef): p5 => {
     let inc = 0.01;
 

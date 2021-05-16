@@ -1,6 +1,8 @@
 <attribution-card [attribution]="attribution"></attribution-card>
 <section fxLayout="row | wrap"
          fxLayoutAlign="start start">
+  <sketch title="TV Static"
+          [init]="noise.tvStatic"></sketch>
   <sketch title="2D Noise"
           [init]="noise.noise2d"></sketch>
 </section>
