@@ -6,7 +6,8 @@
     "start": "ng serve --configuration development",
     "watch": "ng build core --watch --configuration development",
     "build": "ng build",
-    "build:core": "ng build core"
+    "build:core": "ng build core",
+    "deploy": "ng build --output-path docs --base-href /p5-study/"
   },
   "private": true,
   "dependencies": {
