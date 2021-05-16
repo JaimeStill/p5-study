@@ -11,7 +11,9 @@
       <button mat-menu-item
               routerLink="noise">Perlin Noise</button>
     </mat-menu>
-    <span class="cursor-pointer" routerLink="/" fxFlex>Sketch</span>
+    <span class="cursor-pointer"
+          routerLink="/"
+          fxFlex>Sketch</span>
     <button mat-icon-button
             class="color"
             [ngClass]="themer.isDark ? 'text' : 'warning'"
@@ -19,6 +21,15 @@
       <mat-icon *ngIf="!(themer.isDark)">brightness_5</mat-icon>
       <mat-icon *ngIf="themer.isDark">brightness_3</mat-icon>
     </button>
+    <a mat-icon-button
+       class="color background"
+       href="https://github.com/JaimeStill/p5-study"
+       target="_blank"
+       [style.margin-left.px]="8">
+      <mat-icon class="fa-2x"
+                fontSet="fab"
+                fontIcon="fa-github"></mat-icon>
+    </a>
   </mat-toolbar>
   <section class="app-container">
     <router-outlet></router-outlet>
