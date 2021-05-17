@@ -7,6 +7,7 @@ import { Link } from 'core';
 })
 export class HomeRoute {
   links: Array<Link> = [
+    { url: 'pixel-array', label: 'Pixel Array' },
     { url: 'noise', label: 'Perlin Noise' }
   ]
 }
