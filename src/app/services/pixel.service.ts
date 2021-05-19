@@ -9,10 +9,10 @@ import * as p5 from 'p5';
 export class PixelService {
   private setBackground = (s: p5) => s.background(51);
 
-  pixelArray = (element: ElementRef): p5 => {
+  pixelArray = (element: ElementRef, width: number, height: number): p5 => {
     return new p5((s: p5) => {
       s.setup = () => {
-        s.createCanvas(320, 240);
+        s.createCanvas(width, height);
 
         /*
           Disable pixel scaling for high density

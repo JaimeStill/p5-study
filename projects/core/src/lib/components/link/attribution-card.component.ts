@@ -11,5 +11,5 @@ import { Attribution } from '../../models';
 })
 export class AttributionCardComponent {
   @Input() attribution: Attribution = { } as Attribution;
-  @Input() size = 436;
+  @Input() size = 354;
 }

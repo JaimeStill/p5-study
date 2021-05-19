@@ -11,10 +11,10 @@ export class NoiseService {
   private setFill = (s: p5) => s.fill(2, 165, 255);
   private setStroke = (s: p5) => s.stroke(2, 165, 255);
 
-  createRandom = (element: ElementRef): p5 => {
+  createRandom = (element: ElementRef, width: number, height: number): p5 => {
     return new p5((s: p5) => {
       s.setup = () => {
-        s.createCanvas(400, 400)
+        s.createCanvas(width, height)
       }
 
       s.draw = () => {
@@ -23,17 +23,17 @@ export class NoiseService {
 
         let x = s.random(s.width);
 
-        s.ellipse(x, 200, 24, 24);
+        s.ellipse(x, height / 2, 24, 24);
       }
     }, element.nativeElement);
   }
 
-  createNoise = (element: ElementRef): p5 => {
+  createNoise = (element: ElementRef, width: number, height: number): p5 => {
     let xoff = 0;
 
     return new p5((s: p5) => {
       s.setup = () => {
-        s.createCanvas(400, 400)
+        s.createCanvas(width, height)
       }
 
       s.draw = () => {
@@ -44,18 +44,18 @@ export class NoiseService {
 
         xoff += 0.01;
 
-        s.ellipse(x, 200, 24, 24);
+        s.ellipse(x, height / 2, 24, 24);
       }
     }, element.nativeElement);
   }
 
-  noiseGraph = (element: ElementRef): p5 => {
+  noiseGraph = (element: ElementRef, width: number, height: number): p5 => {
     let inc = 0.01;
     let start = 0;
 
     return new p5((s: p5) => {
       s.setup = () => {
-        s.createCanvas(400, 400)
+        s.createCanvas(width, height)
       }
 
       s.draw = () => {
@@ -80,13 +80,13 @@ export class NoiseService {
     }, element.nativeElement);
   }
 
-  noisySin = (element: ElementRef): p5 => {
+  noisySin = (element: ElementRef, width: number, height: number): p5 => {
     let inc = 0.01;
     let start = 0;
 
     return new p5((s: p5) => {
       s.setup = () => {
-        s.createCanvas(400, 400);
+        s.createCanvas(width, height);
       }
 
       s.draw = () => {
@@ -115,13 +115,13 @@ export class NoiseService {
     }, element.nativeElement);
   }
 
-  yAxis = (element: ElementRef): p5 => {
+  yAxis = (element: ElementRef, width: number, height: number): p5 => {
     let xoff1 = 0;
     let xoff2 = 10000;
 
     return new p5((s: p5) => {
       s.setup = () => {
-        s.createCanvas(400, 400);
+        s.createCanvas(width, height);
       }
 
       s.draw = () => {
@@ -139,12 +139,12 @@ export class NoiseService {
     }, element.nativeElement);
   }
 
-  tvStatic = (element: ElementRef): p5 => {
+  tvStatic = (element: ElementRef, width: number, height: number): p5 => {
     let inc = 0.01;
 
     return new p5((s: p5) => {
       s.setup = () => {
-        s.createCanvas(400, 400);
+        s.createCanvas(width, height);
         s.pixelDensity(1);
       }
 
@@ -168,12 +168,12 @@ export class NoiseService {
     }, element.nativeElement);
   }
 
-  noise2d = (element: ElementRef): p5 => {
+  noise2d = (element: ElementRef, width: number, height: number): p5 => {
     let inc = 0.01;
 
     return new p5((s: p5) => {
       s.setup = () => {
-        s.createCanvas(400, 400);
+        s.createCanvas(width, height);
         s.noiseSeed(s.random(0, 255));
         s.pixelDensity(1);
       }
