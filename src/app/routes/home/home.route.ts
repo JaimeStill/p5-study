@@ -9,6 +9,7 @@ export class HomeRoute {
   links: Array<Link> = [
     { url: 'pixel-array', label: 'Pixel Array' },
     { url: 'noise', label: 'Perlin Noise' },
-    { url: 'introduction', label: 'Nature of Code: Introduction' }
+    { url: 'introduction', label: 'Nature of Code: Introduction' },
+    { url: 'vectors', label: 'Nature of Code: Vectors' }
   ]
 }
