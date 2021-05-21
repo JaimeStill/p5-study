@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import { ForcesRoute } from './forces';
 import { HomeRoute } from './home';
 import { IntroRoute } from './introduction';
 import { PixelArrayRoute } from './pixel-array';
@@ -11,6 +12,7 @@ import {
 } from './noise';
 
 export const RouteComponents = [
+  ForcesRoute,
   HomeRoute,
   IntroRoute,
   ...NoiseChildren,
@@ -21,6 +23,7 @@ export const RouteComponents = [
 
 export const Routes: Route[] = [
   { path: '', component: HomeRoute },
+  { path: 'forces', component: ForcesRoute },
   { path: 'introduction', component: IntroRoute },
   { path: 'noise', component: NoiseRoute, children: NoiseRoutes },
   { path: 'pixel-array', component: PixelArrayRoute },
