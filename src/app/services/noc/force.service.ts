@@ -159,16 +159,15 @@ export class ForceService {
     let xoff = 0;
 
     return new p5((s: p5) => {
-      const generateMover = () => new Mover(
-        30, 30,
-        s.random(2, 11)
+      const generateMover = (i: number) => new Mover(
+        30, 30, i
       );
 
       const initMovers = () => {
         movers = new Array<Mover>();
 
-        for (let i = 0; i < 60; i++)
-          movers.push(generateMover());
+        for (let i = 0; i < 6; i++)
+          movers.push(generateMover((i + 2) * 2));
       }
 
       const setupWindMagnitude = () => {
@@ -268,16 +267,15 @@ export class ForceService {
     let xoff = 0;
 
     return new p5((s: p5) => {
-      const generateMover = () => new Mover(
-        30, 30,
-        s.random(2, 11)
+      const generateMover = (i: number) => new Mover(
+        30, 30, i
       );
 
       const initMovers = () => {
         movers = new Array<Mover>();
 
-        for (let i = 0; i < 12; i++)
-          movers.push(generateMover());
+        for (let i = 0; i < 6; i++)
+          movers.push(generateMover((i + 2) * 2));
       }
 
       const setupWindMagnitude = () => {
@@ -381,16 +379,15 @@ export class ForceService {
     let xoff = 0;
 
     return new p5((s: p5) => {
-      const generateMover = () => new Mover(
-        30, 30,
-        s.random(2, 11)
+      const generateMover = (i: number) => new Mover(
+        30, 30, i
       );
 
       const initMovers = () => {
         movers = new Array<Mover>();
 
-        for (let i = 0; i < 12; i++)
-          movers.push(generateMover());
+        for (let i = 0; i < 6; i++)
+          movers.push(generateMover((i + 2) * 2));
       }
 
       const setupWindMagnitude = () => {
@@ -411,7 +408,7 @@ export class ForceService {
         gravity.y = 0.3 * mass;
 
       const getFriction = (v: p5.Vector): p5.Vector => {
-        const c = 0.05;
+        const c = 0.07;
         const friction = s.createVector(v.x, v.y);
         friction.mult(-1);
         friction.normalize();
@@ -572,18 +569,25 @@ export class ForceService {
       }
 
       const adjustGravity = (mass: number) =>
-        gravity.y = 0.3 * mass;
+        gravity.y = 0.1 * mass;
+
+      const drawLabel = () => {
+        s.noStroke();
+        s.fill(0);
+        s.text('Click to reset', 8, 20);
+      }
 
       s.setup = () => {
         initLiquid();
         initMovers();
         const canvas = s.createCanvas(width, height);
         canvas.mousePressed(initMovers);
-        gravity.set(0, 0.3);
+        gravity.set(0, 0.1);
       }
 
       s.draw = () => {
         s.background(255);
+        drawLabel();
         liquid.display(s);
 
         movers.forEach(mover => {
@@ -596,6 +600,235 @@ export class ForceService {
           mover.update();
           mover.display(s);
           mover.checkEdges();
+        })
+      }
+    }, element.nativeElement);
+  }
+
+  gravity = (element: ElementRef, width: number, height: number): p5 => {
+    class Mover {
+      position = new p5.Vector();
+      velocity = new p5.Vector();
+      acceleration = new p5.Vector();
+      mass: number = 0;
+      size: number = 0;
+
+      constructor(x: number, y: number, m: number) {
+        this.position.set(x, y);
+        this.velocity.set(1, 0);
+        this.acceleration.set(0, 0);
+        this.mass = m;
+      }
+
+      applyForce = (force: p5.Vector) => {
+        const f = p5.Vector.div(force, this.mass);
+        this.acceleration.add(f);
+      }
+
+      update = () => {
+        this.velocity.add(this.acceleration);
+        this.position.add(this.velocity);
+        this.acceleration.mult(0);
+      }
+
+      display = (s: p5) => {
+        s.fill(240, 240, 240, 255);
+
+        s.ellipse(
+          this.position.x,
+          this.position.y,
+          16, 16
+        )
+
+        s.fill(240, 240, 240, 120);
+
+        s.ellipse(
+          this.position.x,
+          this.position.y,
+          22, 22
+        )
+      }
+    }
+
+    class Attractor {
+      mass = 20;
+      g = 1;
+      position = new p5.Vector();
+
+      constructor() {
+        this.position.set(width / 2, height / 2);
+      }
+
+      attract = (m: Mover, s: p5): p5.Vector => {
+        const f = p5.Vector.sub(this.position, m.position);
+        let distance = f.mag();
+        distance = s.constrain(distance, 5, 25);
+
+        f.normalize();
+        const strength = (this.g * this.mass * m.mass) / (distance * distance);
+        f.mult(strength);
+        return f;
+      }
+
+      display = (s: p5) => {
+        s.fill(80, 255, 80, 255);
+        s.ellipse(this.position.x, this.position.y, this.mass * 2, this.mass * 2);
+        s.fill(40, 80, 255, 120);
+        s.ellipse(this.position.x, this.position.y, this.mass * 2 + 10, this.mass * 2 + 10);
+      }
+    }
+
+    let m: Mover;
+    let a: Attractor;
+
+    return new p5((s: p5) => {
+      s.setup = () => {
+        s.createCanvas(width, height);
+        s.noStroke();
+        m = new Mover(width / 2, height / 2 - 60, 1);
+        a = new Attractor();
+      }
+
+      s.draw = () => {
+        s.background(0);
+
+        const f = a.attract(m, s);
+        m.applyForce(f);
+        m.update();
+
+        a.display(s);
+        m.display(s);
+      }
+    }, element.nativeElement);
+  }
+
+  movingAttractors = (element: ElementRef, width: number, height: number): p5 => {
+    class Body {
+      position = new p5.Vector();
+      velocity = new p5.Vector();
+      acceleration = new p5.Vector();
+      id: number = 0;
+      g: number = Math.floor(Math.random() * 4 + 1);
+      mass: number = 0;
+      size: number = 0;
+      xoff: number = 0;
+      seed: number = 0;
+      hue: number = 0;
+
+      constructor(id: number, x: number, y: number, mass: number, seed: number) {
+        this.id = id;
+        this.position.set(x, y);
+        this.velocity.set(0, 0);
+        this.acceleration.set(0, 0);
+        this.mass = mass;
+        this.size = mass * 4;
+        this.seed = seed;
+      }
+
+      private setColor = (s: p5) => {
+        s.noiseSeed(this.seed);
+        this.hue = s.map(s.noise(this.xoff), 0, 1, 0, 360);
+        s.fill(this.hue, 100, 100, 0.8);
+
+        this.xoff += 0.01;
+      }
+
+      attract = (b: Body, s: p5): p5.Vector => {
+        const f = p5.Vector.sub(this.position, b.position);
+        let distance = f.mag();
+        distance = s.constrain(distance, 5, 30);
+
+        f.normalize();
+        const strength = (this.g * this.mass * b.mass) / (distance * distance);
+        f.mult(strength);
+        return f;
+      }
+
+      applyForce = (force: p5.Vector, s: p5) => {
+        let f = p5.Vector.div(force, this.mass);
+        this.acceleration.add(f);
+      }
+
+      update = (s: p5) => {
+        this.velocity.add(this.acceleration);
+        this.position.add(this.velocity);
+        this.acceleration.mult(0);
+      }
+
+      display = (s: p5) => {
+        this.setColor(s);
+
+        s.ellipse(
+          this.position.x,
+          this.position.y,
+          this.size - 8, this.size - 8
+        )
+
+        const shade = this.hue + 60 > 360
+          ? this.hue + 60 - 360
+          : this.hue + 60;
+
+        s.fill(shade, 100, 100, 0.4);
+
+        s.ellipse(
+          this.position.x,
+          this.position.y,
+          this.size, this.size
+        )
+      }
+
+      checkEdges = () => {
+        if (this.position.x < this.size / 2)
+          this.position.x = width - this.size / 2;
+        else if (this.position.x > width - this.size / 2)
+          this.position.x = this.size / 2;
+
+        if (this.position.y < this.size / 2)
+          this.position.y = height - this.size / 2;
+        else if (this.position.y > height - this.size / 2)
+          this.position.y = this.size / 2;
+      }
+    }
+
+    let bodies: Array<Body>;
+
+    return new p5((s: p5) => {
+      const generateBody = (s: p5, id: number) => new Body(
+        id,
+        s.random(20, width - 19),
+        s.random(20, height - 19),
+        s.random(4, 13),
+        s.random(0, 50000)
+      );
+
+      const initBodies = () => {
+        bodies = new Array<Body>();
+
+        for (let i = 0; i < 3; i++)
+          bodies.push(generateBody(s, i + 1));
+      }
+
+      s.setup = () => {
+        s.createCanvas(width, height);
+        s.colorMode(s.HSB, 360, 100, 100);
+        s.noStroke();
+        initBodies();
+      }
+
+      s.draw = () => {
+        s.background(0);
+
+        bodies.forEach(body => {
+          bodies
+            .filter(b =>b.id !== body.id)
+            .forEach(b => {
+              const f = body.attract(b, s);
+              b.applyForce(f, s);
+            });
+
+          body.update(s);
+          body.display(s);
+          body.checkEdges();
         })
       }
     }, element.nativeElement);
