@@ -8,7 +8,7 @@
 
 ## p5 Integration
 
-### [sketch.component.html](https://github.com/JaimeStill/p5-study/blob/main/projects/core/src/lib/components/sketch/sketch.component.html)
+### [sketch.component.html](https://github.com/JaimeStill/p5-study/blob/main/src/app/components/sketch/sketch.component.html)
 
 A `<section ... #canvas>` element is created to manage the lifecycle of the **p5** generated `<canvas>`.
 
@@ -29,7 +29,7 @@ A `<section ... #canvas>` element is created to manage the lifecycle of the **p5
 </section>
 ```
 
-### [sketch.component.ts](https://github.com/JaimeStill/p5-study/blob/main/projects/core/src/lib/components/sketch/sketch.component.ts)
+### [sketch.component.ts](https://github.com/JaimeStill/p5-study/blob/src/app/components/sketch/sketch.component.ts)
 
 An `init: (element: ElementRef<HTMLElement>) => p5` function is input into the component. This function consists of the logic needed to generate a **p5** sketch.
 
@@ -148,7 +148,7 @@ The `NoiseService` is registered with the route component's providers array for 
 
 ```ts  
 import { Component } from '@angular/core';
-import { Attribution } from 'core';
+import { Attribution } from '../../../models';
 import { NoiseService } from '../../../services';
 
 @Component({

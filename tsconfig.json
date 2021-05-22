@@ -3,12 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "core": [
-        "dist/core/core",
-        "dist/core"
-      ]
-    },
+    "paths": {},
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

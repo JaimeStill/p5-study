@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Link } from 'core';
+import { Link } from '../../models';
 
 @Component({
   selector: 'home-route',

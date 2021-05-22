@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 
 import {
   ThemeService
-} from 'core';
+} from './services';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  providers: [ThemeService]
 })
 export class AppComponent {
   constructor(

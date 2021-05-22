@@ -708,7 +708,7 @@ export class ForceService {
       velocity = new p5.Vector();
       acceleration = new p5.Vector();
       id: number = 0;
-      g: number = Math.floor(Math.random() * 4 + 1);
+      g: number = 1;
       mass: number = 0;
       size: number = 0;
       xoff: number = 0;
@@ -736,7 +736,7 @@ export class ForceService {
       attract = (b: Body, s: p5): p5.Vector => {
         const f = p5.Vector.sub(this.position, b.position);
         let distance = f.mag();
-        distance = s.constrain(distance, 5, 30);
+        distance = s.constrain(distance, 5, 20);
 
         f.normalize();
         const strength = (this.g * this.mass * b.mass) / (distance * distance);
@@ -750,7 +750,9 @@ export class ForceService {
       }
 
       update = (s: p5) => {
+        this.acceleration.limit(4);
         this.velocity.add(this.acceleration);
+        this.velocity.limit(4);
         this.position.add(this.velocity);
         this.acceleration.mult(0);
       }

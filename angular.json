@@ -121,29 +121,6 @@
           }
         }
       }
-    },
-    "core": {
-      "projectType": "library",
-      "root": "projects/core",
-      "sourceRoot": "projects/core/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/core/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/core/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/core/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        }
-      }
     }
   },
   "defaultProject": "sketch"

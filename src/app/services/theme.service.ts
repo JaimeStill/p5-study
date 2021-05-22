@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ThemeService {
   isDark = false;
 

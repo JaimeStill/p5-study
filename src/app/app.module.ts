@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { CoreModule } from 'core';
 import { AppComponent } from './app.component';
+import { MaterialModule } from './material.module';
+
+import { Components } from './components';
 
 import {
   RouteComponents,
@@ -14,13 +16,14 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
+    ...Components,
     ...RouteComponents
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    CoreModule,
+    MaterialModule,
     RouterModule.forRoot(Routes)
   ],
   providers: [],

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Attribution } from 'core';
+import { Attribution } from '../../../models';
 import { NoiseService } from '../../../services';
 
 @Component({
