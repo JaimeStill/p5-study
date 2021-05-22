@@ -822,9 +822,149 @@ export class ForceService {
 
         bodies.forEach(body => {
           bodies
-            .filter(b =>b.id !== body.id)
+            .filter(b => b.id !== body.id)
             .forEach(b => {
               const f = body.attract(b, s);
+              b.applyForce(f, s);
+            });
+
+          body.update(s);
+          body.display(s);
+          body.checkEdges();
+        })
+      }
+    }, element.nativeElement);
+  }
+
+  repellent = (element: ElementRef, width: number, height: number): p5 => {
+    class Body extends p5.Vector {
+      velocity = new p5.Vector();
+      acceleration = new p5.Vector();
+      id: number = 0;
+      g: number = 1;
+      mass: number = 0;
+      size: number = 0;
+      xoff: number = 0;
+      seed: number = 0;
+      hue: number = 0;
+
+      constructor(id: number, x: number, y: number, mass: number, seed: number) {
+        super();
+        this.set(x, y);
+        this.id = id;
+        this.velocity.set(0, 0);
+        this.acceleration.set(0, 0);
+        this.mass = mass;
+        this.size = mass * 4;
+        this.seed = seed;
+      }
+
+      private setColor = (s: p5) => {
+        s.noiseSeed(this.seed);
+        this.hue = s.map(s.noise(this.xoff), 0, 1, 0, 360);
+        s.fill(this.hue, 100, 100, 0.8);
+
+        this.xoff += 0.01;
+      }
+
+      repel = (b: Body, s: p5): p5.Vector => {
+        const f = p5.Vector.sub(this, b);
+        let distance = f.mag();
+        distance = s.constrain(distance, 5, 20);
+
+        f.normalize();
+        const strength = (this.g * this.mass * b.mass) / (distance * distance);
+        f.mult(-strength);
+        return f;
+      }
+
+      applyForce = (force: p5.Vector, s: p5) => {
+        let f = p5.Vector.div(force, this.mass);
+        this.acceleration.add(f);
+      }
+
+      update = (s: p5) => {
+        this.acceleration.limit(4);
+        this.velocity.add(this.acceleration);
+        this.velocity.limit(4);
+        this.add(this.velocity);
+        this.acceleration.mult(0);
+      }
+
+      display = (s: p5) => {
+        this.setColor(s);
+
+        s.ellipse(
+          this.x,
+          this.y,
+          this.size - 8, this.size - 8
+        )
+
+        const shade = this.hue + 60 > 360
+          ? this.hue + 60 - 360
+          : this.hue + 60;
+
+        s.fill(shade, 100, 100, 0.4);
+
+        s.ellipse(
+          this.x,
+          this.y,
+          this.size, this.size
+        )
+      }
+
+      checkEdges = () => {
+        if (this.x < this.size / 2) {
+          this.x = this.size / 2;
+          this.velocity.x *= -2;
+        } else if (this.x > width - this.size / 2) {
+          this.x = width - this.size / 2;
+          this.velocity.x *= -2;
+        }
+
+        if (this.y < this.size / 2) {
+          this.y = this.size / 2;
+          this.velocity.y *= -2;
+        } else if (this.y > height - this.size / 2) {
+          this.y = height - this.size / 2;
+          this.velocity.y *= -2;
+        }
+      }
+    }
+
+    let bodies: Array<Body>;
+
+    return new p5((s: p5) => {
+      const generateBody = (s: p5, id: number) => new Body(
+        id,
+        s.random(20, width - 19),
+        s.random(20, height - 19),
+        s.random(4, 13),
+        s.random(0, 50000)
+      );
+
+      const initBodies = () => {
+        bodies = new Array<Body>();
+
+        for (let i = 0; i < 5; i++)
+          bodies.push(generateBody(s, i + 1));
+      }
+
+      s.setup = () => {
+        s.createCanvas(width, height);
+        s.colorMode(s.HSB, 360, 100, 100);
+        s.noStroke();
+        initBodies();
+      }
+
+      s.draw = () => {
+        s.background(0);
+
+        bodies.forEach(body => {
+          bodies
+            .filter(b => b.id !== body.id)
+            .forEach(b => {
+              const f = body.repel(b, s);
               b.applyForce(f, s);
             });
 
