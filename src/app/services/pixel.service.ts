@@ -67,4 +67,52 @@ export class PixelService {
       }
     }, element.nativeElement);
   }
+
+  colorNoise = (element: ElementRef, width: number, height: number): p5 => {
+    let roff = 0;
+    let goff = 10000;
+    let boff = 20000;
+    let r = 0;
+    let g = 0;
+    let b = 0;
+
+    const setColors = (s: p5) => {
+      r = s.map(s.noise(roff), 0, 1, 0, 255);
+      g = s.map(s.noise(goff), 0, 1, 0, 255);
+      b = s.map(s.noise(boff), 0, 1, 0, 255);
+
+      roff += 0.01;
+      goff += 0.01;
+      boff += 0.01;
+    }
+
+    return new p5((s: p5) => {
+      s.setup = () => {
+        s.createCanvas(width, height);
+        s.pixelDensity(1);
+        setColors(s);
+      }
+
+      s.draw = () => {
+        this.setBackground(s);
+
+        s.loadPixels();
+
+        for (let y = 0; y < s.height; y++) {
+          for (let x = 0; x < s.width; x++) {
+            let index = (x + y * s.width) * 4;
+
+            s.pixels[index] = r;
+            s.pixels[index + 1] = g;
+            s.pixels[index + 2] = b;
+            s.pixels[index + 3] = 255;
+          }
+        }
+
+        setColors(s);
+
+        s.updatePixels();
+      }
+    }, element.nativeElement);
+  }
 }

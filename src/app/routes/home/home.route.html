@@ -1,7 +1,20 @@
-<p class="mat-title m16">p5.js Study</p>
-<section gdColumns="repeat(auto-fill, 188px)"
-         gdAlignRows="start center"
-         class="p8 m8">
-  <link-card *ngFor="let l of links"
-             [link]="l"></link-card>
-</section>
+<mat-toolbar>
+  <span fxFlex>p5.js Study</span>
+  <mat-form-field [style.min-width.px]="420">
+    <input matInput
+           placeholder="Search Link"
+           #search />
+  </mat-form-field>
+</mat-toolbar>
+<ng-template #loading>
+  <mat-progress-bar mode="indeterminate"
+                    color="accent"></mat-progress-bar>
+</ng-template>
+<ng-container *ngIf="app.links$ | async as links else loading">
+  <section gdColumns="repeat(auto-fill, 188px)"
+           gdAlignRows="start center"
+           class="p8 m8">
+    <link-card *ngFor="let l of links"
+               [link]="l"></link-card>
+  </section>
+</ng-container>
