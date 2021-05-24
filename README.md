@@ -60,8 +60,8 @@ export class SketchComponent implements AfterViewInit, OnDestroy {
   @Input() init!: (element: ElementRef<HTMLElement>) => p5;
   @Input() title = 'Title';
   @Input() sketchStyle = 'm4 p8 rounded elevated card-outline-accent';
-  @Input() width = 400;
-  @Input() height = 400;
+  @Input() width = 320;
+  @Input() height = 240;
 
   @ViewChild('canvas', { static: true }) canvas!: ElementRef<HTMLElement>;
 

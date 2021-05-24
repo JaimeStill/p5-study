@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import { FireworksRoute } from './fireworks';
 import { ForcesRoute } from './forces';
 import { HomeRoute } from './home';
 import { IntroRoute } from './introduction';
@@ -13,6 +14,7 @@ import {
 } from './noise';
 
 export const RouteComponents = [
+  FireworksRoute,
   ForcesRoute,
   HomeRoute,
   IntroRoute,
@@ -25,6 +27,7 @@ export const RouteComponents = [
 
 export const Routes: Route[] = [
   { path: '', component: HomeRoute },
+  { path: 'fireworks', component: FireworksRoute },
   { path: 'forces', component: ForcesRoute },
   { path: 'introduction', component: IntroRoute },
   { path: 'noise', component: NoiseRoute, children: NoiseRoutes },

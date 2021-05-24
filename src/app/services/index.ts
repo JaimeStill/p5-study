@@ -1,3 +1,4 @@
+export * from './challenges';
 export * from './noc';
 
 export * from './app.service';

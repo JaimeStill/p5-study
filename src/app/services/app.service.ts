@@ -25,7 +25,8 @@ export class AppService {
     { url: 'introduction', label: 'Nature of Code: Introduction' },
     { url: 'vectors', label: 'Nature of Code: Vectors' },
     { url: 'forces', label: 'Nature of Code: Forces' },
-    { url: 'oscillation', label: 'Nature of Code: Oscillation' }
+    { url: 'oscillation', label: 'Nature of Code: Oscillation' },
+    { url: 'fireworks', label: 'Challenge: Fireworks' }
   ]
 
   private linkStream = new BehaviorSubject<Array<Link>>(this.links);
