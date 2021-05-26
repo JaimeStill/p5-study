@@ -116,7 +116,7 @@ class Firework {
     : false;
 
   explode = () => {
-    const multi = this.s.random(1) < 0.1;
+    const multi = this.s.random(1) < 0.2;
 
     for (var i = 0; i < 100; i++) {
       const p = new Particle(
