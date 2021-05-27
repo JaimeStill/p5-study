@@ -1,0 +1,12 @@
+<div class="mat-typography">
+  <h2 mat-dialog-title>{{data.title}}</h2>
+  <mat-dialog-content>
+    <section #canvas></section>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-stroked-button
+            (click)="refresh()">Refresh</button>
+    <button mat-stroked-button
+            mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</div>

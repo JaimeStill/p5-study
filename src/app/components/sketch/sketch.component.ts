@@ -7,6 +7,9 @@ import {
   ElementRef
 } from '@angular/core';
 
+import { MatDialog } from '@angular/material/dialog';
+import { SketchDialog } from '../../dialogs';
+
 import * as p5 from 'p5';
 
 @Component({
@@ -20,6 +23,10 @@ export class SketchComponent implements AfterViewInit, OnDestroy {
   @Input() sketchStyle = 'm4 p8 rounded elevated card-outline-accent';
   @Input() width = 320;
   @Input() height = 240;
+
+  constructor(
+    private dialog: MatDialog
+  ) { }
 
   @ViewChild('canvas', { static: true }) canvas!: ElementRef<HTMLElement>;
 
@@ -35,4 +42,13 @@ export class SketchComponent implements AfterViewInit, OnDestroy {
     this.sketch.remove();
     this.sketch = this.init(this.canvas, this.width, this.height);
   }
+
+  expand = () => this.dialog.open(SketchDialog, {
+    data: {
+      init: this.init,
+      width: 1000 > window.innerWidth - 100 ? window.innerWidth - 100 : 1000,
+      height: 720 > window.innerHeight - 100 ? window.innerHeight - 100 : 720,
+      title: this.title
+    }
+  })
 }

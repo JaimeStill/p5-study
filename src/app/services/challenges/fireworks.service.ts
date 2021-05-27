@@ -23,7 +23,9 @@ export class FireworksService {
       }
 
       s.draw = () => {
+        s.blendMode(s.BLEND);
         s.background(0, 25);
+        s.blendMode(s.ADD);
 
         if (s.random(1) < 0.03) {
           fireworks.push(new Firework(

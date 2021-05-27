@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 
 import { Components } from './components';
+import { Dialogs } from './dialogs';
 
 import {
   RouteComponents,
@@ -16,6 +17,7 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
+    ...Dialogs,
     ...Components,
     ...RouteComponents
   ],
