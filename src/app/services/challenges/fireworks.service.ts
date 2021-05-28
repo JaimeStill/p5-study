@@ -19,7 +19,7 @@ export class FireworksService {
         s.strokeWeight(4);
         s.background(0);
 
-        gravity.set(0, 0.2);
+        gravity.set(0, s.map(s.height, 100, 1440, 0.2, 0.005));
       }
 
       s.draw = () => {
