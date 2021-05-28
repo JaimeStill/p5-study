@@ -21,8 +21,6 @@ export class SketchDialog implements AfterViewInit, OnDestroy {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: {
       init: (element: ElementRef<HTMLElement>, width: number, height: number) => p5,
-      width: number,
-      height: number,
       title: 'Title'
     }
   ) { }
@@ -30,7 +28,7 @@ export class SketchDialog implements AfterViewInit, OnDestroy {
   @ViewChild('canvas', { static: true }) canvas!: ElementRef<HTMLElement>;
 
   ngAfterViewInit() {
-    this.sketch = this.data.init(this.canvas, this.data.width, this.data.height);
+    this.sketch = this.data.init(this.canvas, this.canvas.nativeElement.clientWidth, this.canvas.nativeElement.clientHeight);
   }
 
   ngOnDestroy() {
@@ -39,6 +37,6 @@ export class SketchDialog implements AfterViewInit, OnDestroy {
 
   refresh = () => {
     this.sketch.remove();
-    this.sketch = this.data.init(this.canvas, this.data.width, this.data.height);
+    this.sketch = this.data.init(this.canvas, this.canvas.nativeElement.clientWidth, this.canvas.nativeElement.clientHeight);
   }
 }

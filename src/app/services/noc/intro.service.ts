@@ -216,8 +216,10 @@ export class IntroService {
         this.w = w;
         this.h = h;
         this.scl = scl;
-        this.cols = w / scl;
-        this.rows = h / scl;
+        this.cols = Math.floor(w / scl);
+        console.log('cols', this.cols);
+        this.rows = Math.floor(h / scl);
+        console.log('rows', this.rows);
         this.z = new Array(this.cols).fill(0).map(() => new Array(this.rows).fill(0));
       }
 

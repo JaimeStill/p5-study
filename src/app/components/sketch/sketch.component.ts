@@ -46,9 +46,10 @@ export class SketchComponent implements AfterViewInit, OnDestroy {
   expand = () => this.dialog.open(SketchDialog, {
     data: {
       init: this.init,
-      width: 1000 > window.innerWidth - 100 ? window.innerWidth - 100 : 1000,
-      height: 720 > window.innerHeight - 100 ? window.innerHeight - 100 : 720,
       title: this.title
-    }
+    },
+    width: '80vw',
+    height: '76vh',
+    autoFocus: false
   })
 }

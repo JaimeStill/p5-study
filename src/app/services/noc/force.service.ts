@@ -555,11 +555,15 @@ export class ForceService {
         0.1
       );
 
-      const generateMover = (i: number) => new Mover(
-        20 + i * 35,
-        0,
-        s.random(0.5, 3)
-      );
+      const generateMover = (i: number) => {
+        const rnd = s.random(0.5, 3);
+
+        return new Mover(
+          rnd + 20 + i * s.width / 9,
+          0,
+          rnd
+        );
+      }
 
       const initMovers = () => {
         movers = new Array<Mover>();
@@ -578,9 +582,9 @@ export class ForceService {
       }
 
       s.setup = () => {
+        const canvas = s.createCanvas(width, height);
         initLiquid();
         initMovers();
-        const canvas = s.createCanvas(width, height);
         canvas.mousePressed(initMovers);
         gravity.set(0, 0.1);
       }
